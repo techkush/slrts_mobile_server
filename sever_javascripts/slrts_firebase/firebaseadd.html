@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
+    <script>
+        var config = {
+            apiKey: "AIzaSyBe8H-HVarkEEmfM-2uTF18pVN4ncRk5AI",
+            authDomain: "slrtsalgo.firebaseapp.com",
+            databaseURL: "https://slrtsalgo.firebaseio.com",
+            projectId: "slrtsalgo",
+            storageBucket: "slrtsalgo.appspot.com",
+            messagingSenderId: "1066802033757"
+        }; firebase.initializeApp(config);
+
+        firebase.database().ref('location/apitest').update(
+            {
+                lat: 12.345,
+                lng: 34.567
+            }
+        ).then(() => {
+            console.log('Inserted!');
+        }).catch((error) => {
+            console.log(error);
+        });
+
+        console.log('done');
+    </script>
+</body>
+
+</html>
