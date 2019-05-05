@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>containsLocation()</title>
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Geofence</h1>
+    <div id="map"></div>
+    <script>
+      function initMap() {
+        //https://www.w3schools.com/js/js_json_files.asp
+        var triangleCoords = [
+          {lat: 25.774, lng: -80.19},
+          {lat: 18.466, lng: -66.118},
+          {lat: 32.321, lng: -64.757}
+        ];
+
+        var bermudaTriangle = new google.maps.Polygon({paths: triangleCoords});
+        var point = new google.maps.LatLng(24.488354321904065, -69.58684765625003);
+        var resultPath = google.maps.geometry.poly.containsLocation(point, bermudaTriangle);
+        console.log(resultPath);
+
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyATM5IwVRiH_U3H4iKE5GcH0Fxkj60ET3I&libraries=geometry&callback=initMap"
+         async defer></script>
+  </body>
+</html>
